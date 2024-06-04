@@ -18,7 +18,7 @@ class ResolveModelAttributes implements ModelResolver
         $typeCaster = new AttributeTypeCaster($model);
 
         foreach ($columns as $column) {
-            $attribute = new Attribute($column['name'], $column['type_name']);
+            $attribute = new Attribute($column['name'], $column['type_name'], $column['comment']);
             $attribute->inDatabase = true;
             if ($column['nullable'] && !$this->isLaravelTimestamp($model, $attribute)) {
                 $attribute->nullable = true;
